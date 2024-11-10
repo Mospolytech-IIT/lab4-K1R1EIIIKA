@@ -1,8 +1,12 @@
-from functions import print_string, process_data_v2, process_data, validate_string_length, print_data, print_number, \
-    calculate_square_root, safe_division, divide_numbers, get_element_from_list, return_positive, convert_to_int
+"""Модуль с вызовами функций из модуля functions.py"""
+
+from functions import (print_string, process_data_v2, process_data, validate_string_length,
+                       print_data, print_number,calculate_square_root, safe_division,
+                       divide_numbers, get_element_from_list, return_positive, convert_to_int)
 
 
 def main():
+    """Точка входа в программу"""
     # 1
     return_positive(-1)
     divide_numbers(1, 0)

@@ -1,4 +1,6 @@
-﻿from exceptions import NegativeValueError, InvalidParameterError, InvalidDataError
+﻿"""Модуль с функциями для работы с исключениями"""
+
+from exceptions import NegativeValueError, InvalidParameterError, InvalidDataError
 
 
 # Задание 1
@@ -49,10 +51,13 @@ def calculate_square_root(value):
         return value ** 0.5
     except ValueError as e:
         print(f"Ошибка: {e}")
+        return None
     except TypeError:
         print("Ошибка: значение должно быть числом")
+        return None
     except Exception as e:
         print(f"Ошибка: {e}")
+        return None
 
 
 def safe_division(a, b):
@@ -61,10 +66,13 @@ def safe_division(a, b):
         return a / b
     except ZeroDivisionError:
         print("Ошибка: деление на ноль")
+        return None
     except TypeError:
         print("Ошибка: a и b должны быть числами")
+        return None
     except ValueError:
         print("Ошибка: некорректные значения")
+        return None
     finally:
         print("Завершение работы функции")
 
@@ -79,10 +87,13 @@ def validate_string_length(s, max_length):
         return s
     except ValueError as e:
         print(f"Ошибка: {e}")
+        return None
     except IndexError as e:
         print(f"Ошибка: {e}")
+        return None
     except TypeError:
         print("Ошибка: максимальная длина должна быть числом")
+        return None
 
 
 # Задание 5
@@ -126,15 +137,17 @@ def print_string(s):
         raise InvalidParameterError("Строка не должна быть пустой.")
     print(s)
 
+
 def print_number(x):
     """Выводит число, выбрасывает исключение при отрицательном значении"""
     if x < 0:
         raise NegativeValueError("Число не может быть отрицательным.")
     print(x)
 
+
 def print_data(data):
     """Выводит данные"""
-    if type(data) != dict:
+    if not isinstance(data, dict):
         raise InvalidDataError("Данные должны быть словарем.")
 
     for key, value in data.items():
